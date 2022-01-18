@@ -1,5 +1,11 @@
 "use strict"
 
+const pickRandom = (list) => {
+    const position = Math.floor(Math.random() * (list.length - 1));
+    const entry = list[position];
+    return entry;
+};
+
 const prefixes = [
     "Gloom",
     "Gray",
@@ -156,12 +162,6 @@ const appelations = [
     "the Cold"
 ];
 
-const pickRandom = (list) => {
-    const position = Math.floor(Math.random() * (list.length - 1));
-    const entry = list[position];
-    return entry;
-};
-
 const auras = [
     "Might",
     "Holy Fire",
@@ -280,7 +280,7 @@ const monster = (prefixes, suffixes, appelations, specialAbilities) => {
     return {
         name: monsterName,
         specialAbilityName: specialAbility.name,
-        effect:specialAbility.effect
+        effect: specialAbility.effect
     }
 };
 
@@ -304,10 +304,12 @@ const effectTemplate = {
     bonusResistance: "",
     bonusFeature: {
         name: "",
-        effect:"",
+        effect: "",
     }
 };
 
 const randomMonster = monster(prefixes, suffixes, appelations, specialAbilities);
 
-console.log(randomMonster);
+// console.log(randomMonster);
+
+module.exports = { pickRandom };
